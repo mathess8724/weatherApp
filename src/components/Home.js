@@ -17,7 +17,7 @@ function Home() {
     const [cityGeo,setCityGeo] = useState([])
     let ctx ;
     let start;
-    let end;    
+    let end = Config();    
     let id= '2885679';
     
     
@@ -41,7 +41,7 @@ function Home() {
     //obtaining gps for the city 
     async function searchCityGeo(city, nbDays){
         console.log('serach coord for ' + city)
-        await Axios.get(`http://api.openweathermap.org/data/2.5/forecast?units=metric&q=${city}${Config()}`)
+        await Axios.get(`https://api.openweathermap.org/data/2.5/forecast?units=metric&q=${city}${end}`)
         .then( (response) => {
         let tempGeo = response.data.city.coord;        
         getData(tempGeo,city, refContainer, nbDays)
@@ -64,7 +64,7 @@ function Home() {
         if(nbDays === 7){
             console.log('search for next 7 days')           
             //console.log()
-            dataLink =`https://api.openweathermap.org/data/2.5/onecall?lat=${cityGeo.lat}&lon=${cityGeo.lon}&exclude=hourly&units=metric${Config()}`
+            dataLink =`https://api.openweathermap.org/data/2.5/onecall?lat=${cityGeo.lat}&lon=${cityGeo.lon}&exclude=hourly&units=metric${end}`
             //console.log(dataLink)
             }
 
@@ -75,13 +75,13 @@ function Home() {
                 dateP.setDate(dateP.getDate() -5)
                 dateP = Math.round(dateP.getTime() /1000)
             console.log(dateP)            
-            dataLink =`http://api.openweathermap.org/data/2.5/onecall/timemachine?lat=${cityGeo.lat}&lon=${cityGeo.lon}&dt=${dateP}&units=metric${Config()}`
+            dataLink =`https://api.openweathermap.org/data/2.5/onecall/timemachine?lat=${cityGeo.lat}&lon=${cityGeo.lon}&dt=${dateP}&units=metric${end}`
             console.log(dataLink)
             }
             else if(nbDays === 0){
                 console.log('search for today')
                 let dateP = Date.now()   
-                dataLink =`http://api.openweathermap.org/data/2.5/onecall?lat=${cityGeo.lat}&lon=${cityGeo.lon}&dt=${dateP}&units=metric${Config()}`
+                dataLink =`https://api.openweathermap.org/data/2.5/onecall?lat=${cityGeo.lat}&lon=${cityGeo.lon}&dt=${dateP}&units=metric${end}`
                 //console.log(dataLink)
             }
 

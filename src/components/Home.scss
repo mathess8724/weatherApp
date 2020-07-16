@@ -15,7 +15,7 @@
 }
 .srchButton
 {
-    height: 25px;
+    height: 25px;   
     margin-left: -5px;
     border-bottom-right-radius: 5px;
     border-top-right-radius: 5px;
@@ -24,6 +24,7 @@
 .inputCity
 {
     height: 17px;
+    width: 100px;
     border-bottom-left-radius: 5px;
     border-top-left-radius: 5px;
     border: 1px solid rgba(151, 140, 140, 0.418);
@@ -42,7 +43,8 @@
 }
 .btnChartOn
 {
-    background: rgba(204, 203, 203, 0.507);
+    background: rgba(221, 221, 221, 0.288);
+    //background: rgba(204, 203, 203, 0.507);
     border-radius: 3px;
     height: 20px;
 }
@@ -64,5 +66,17 @@
 {
     border-radius: 3px;
     height: 20px;
-    background: rgba(221, 221, 221, 0.288);
+    //background: rgba(221, 221, 221, 0.288);
+    background: rgba(204, 203, 203, 0.507);
+}
+@media screen and (max-width: 900px)
+{
+    .icoImg
+    {
+        height: 70px;
+    }
+    .inputCity
+    {
+        width: 90px;
+    }
 }
