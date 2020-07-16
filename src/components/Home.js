@@ -64,7 +64,7 @@ function Home() {
         if(nbDays === 7){
             console.log('search for next 7 days')           
             //console.log()
-            dataLink =`https://api.openweathermap.org/data/2.5/onecall?lat=${cityGeo.lat}&lon=${cityGeo.lon}&exclude=hourly&units=metric&appid=37b4488a028c767e2095a9f8d5310741`
+            dataLink =`https://api.openweathermap.org/data/2.5/onecall?lat=${cityGeo.lat}&lon=${cityGeo.lon}&exclude=hourly&units=metric${Config()}`
             //console.log(dataLink)
             }
 
@@ -75,13 +75,13 @@ function Home() {
                 dateP.setDate(dateP.getDate() -5)
                 dateP = Math.round(dateP.getTime() /1000)
             console.log(dateP)            
-            dataLink =`http://api.openweathermap.org/data/2.5/onecall/timemachine?lat=${cityGeo.lat}&lon=${cityGeo.lon}&dt=${dateP}&units=metric&appid=37b4488a028c767e2095a9f8d5310741`
+            dataLink =`http://api.openweathermap.org/data/2.5/onecall/timemachine?lat=${cityGeo.lat}&lon=${cityGeo.lon}&dt=${dateP}&units=metric${Config()}`
             console.log(dataLink)
             }
             else if(nbDays === 0){
                 console.log('search for today')
                 let dateP = Date.now()   
-                dataLink =`http://api.openweathermap.org/data/2.5/onecall?lat=${cityGeo.lat}&lon=${cityGeo.lon}&dt=${dateP}&units=metric&appid=37b4488a028c767e2095a9f8d5310741`
+                dataLink =`http://api.openweathermap.org/data/2.5/onecall?lat=${cityGeo.lat}&lon=${cityGeo.lon}&dt=${dateP}&units=metric${Config()}`
                 //console.log(dataLink)
             }
 
